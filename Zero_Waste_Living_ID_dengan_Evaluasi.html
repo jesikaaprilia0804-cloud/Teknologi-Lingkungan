@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zero Waste Living ID</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Literata:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{--bg:#f4efe0;--card:#fbf8ee;--ink:#2a2d29;--mute:#5a6157;--g:#2c6a3d;--g2:#5f9a58;--line:#dcd5bf;--acc:#c99a3b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161a16;--card:#1e251e;--ink:#ebe7d8;--mute:#a6ad9f;--g:#86c47f;--g2:#4f8a55;--line:#2e372e;--acc:#e0b55a}}
+:root[data-theme="dark"]{--bg:#161a16;--card:#1e251e;--ink:#ebe7d8;--mute:#a6ad9f;--g:#86c47f;--g2:#4f8a55;--line:#2e372e;--acc:#e0b55a}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 Literata,Georgia,serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+h1,h2,h3,nav,.btn,.big{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+h2{font-size:clamp(1.5rem,4vw,2.1rem);margin:0 0 .5em;line-height:1.15}
+h3{font-size:1.15rem;margin:0 0 .3em}
+p{margin:.6em 0;max-width:68ch}
+a{color:var(--g)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:8px 16px}
+.brand{font:800 1.05rem "Bricolage Grotesque",system-ui,sans-serif;white-space:nowrap;color:var(--g)}
+nav{flex:1;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav a{padding:7px 12px;border-radius:99px;text-decoration:none;color:var(--mute);font-weight:500;font-size:.92rem;white-space:nowrap}
+nav a.on{background:var(--g);color:var(--bg)}
+nav a:focus-visible,.btn:focus-visible,button:focus-visible,.flip:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+#th{background:none;border:1px solid var(--line);color:var(--ink);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:1rem}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px}
+.sec{padding:30px 0;border-top:1px solid var(--line)}
+.pg{animation:pg .45s ease-out}
+@keyframes pg{from{opacity:0;transform:translateY(8px)}}
+.hero{position:relative;overflow:hidden;background:linear-gradient(150deg,#1f4a2b,#3f7c47);color:#f4efe0;padding:72px 0 64px}
+.hero h1{font-size:clamp(2.6rem,9vw,5.2rem);line-height:1;margin:0 0 .3em;font-weight:800;letter-spacing:-.02em}
+.hero p{font-size:1.1rem}
+.hero .wrap{position:relative;z-index:2}
+.leaves i{position:absolute;top:-50px;left:var(--x);width:var(--s);height:var(--s);background:#a8d68f;opacity:.3;border-radius:0 100% 0 100%;animation:fall var(--t) linear infinite;animation-delay:var(--d)}
+@keyframes fall{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(40px,260px) rotate(200deg)}100%{transform:translate(-20px,560px) rotate(380deg)}}
+.btn{display:inline-block;margin:6px 8px 0 0;padding:11px 20px;border-radius:99px;background:var(--g);color:var(--bg);text-decoration:none;font-weight:700;border:2px solid var(--g);cursor:pointer;font-size:1rem}
+.hero .btn{background:#f4efe0;color:#1f4a2b;border-color:#f4efe0}
+.hero .btn.o,.btn.o{background:none;color:inherit;border-color:currentColor}
+.btn:hover{transform:translateY(-2px)}
+.btn{transition:transform .2s}
+.stats{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:-34px;position:relative;z-index:3}
+.st{background:var(--card);border:1px solid var(--line);border-radius:18px 18px 18px 4px;padding:16px 18px}
+.big{font-size:2.5rem;font-weight:800;line-height:1;color:var(--g)}
+.st small{display:block;color:var(--mute);font-size:.86rem;line-height:1.45;margin-top:6px}
+.rows>div{padding:12px 0;border-bottom:1px solid var(--line)}
+.rows>div:last-child{border:0}
+.rows b{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+.note{border-left:5px solid var(--acc);padding:6px 16px;background:var(--card);border-radius:0 12px 12px 0}
+.bar{margin:9px 0}
+.bar i{display:block;font-style:normal;height:42px;line-height:42px;width:0;border-radius:6px 21px 21px 6px;background:var(--c);color:#fff;padding:0 14px;font:500 .92rem/42px "Bricolage Grotesque",system-ui,sans-serif;white-space:nowrap;overflow:hidden;transition:width 1.2s cubic-bezier(.2,.7,.2,1);transition-delay:var(--dl,0s)}
+.in .bar i{width:var(--w)}
+.g3{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.flip{perspective:900px;cursor:pointer;min-height:210px;border:0;background:none;padding:0;text-align:left;font:inherit;color:inherit}
+.fi{position:relative;height:100%;min-height:210px;transition:transform .7s;transform-style:preserve-3d}
+.flip.on .fi{transform:rotateY(180deg)}
+.fi>span{position:absolute;inset:0;backface-visibility:hidden;padding:18px;border-radius:16px;border:1px solid var(--line);background:var(--card);display:flex;flex-direction:column;justify-content:center;font-size:.98rem;line-height:1.55}
+.fi .bk{transform:rotateY(180deg);background:var(--g);color:var(--bg)}
+.fi em{font-size:.8rem;color:var(--mute);margin-top:8px;font-style:normal}
+.step{display:flex;gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line)}
+.step b{font:800 1.9rem "Bricolage Grotesque",system-ui,sans-serif;color:var(--g2);min-width:2rem}
+.bins{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.bin{padding:16px;border-radius:6px 6px 22px 22px;color:#fff;transition:transform .3s}
+.bin:hover{transform:translateY(-5px) rotate(-1deg)}
+.chip{display:inline-block;margin:4px 6px 4px 0;padding:6px 14px;border-radius:99px;background:var(--card);border:1px solid var(--line);font:600 .9rem "Bricolage Grotesque",system-ui,sans-serif}
+.ck{display:flex;gap:12px;align-items:flex-start;padding:9px 0;cursor:pointer;border-bottom:1px solid var(--line)}
+.ck input{width:22px;height:22px;margin-top:4px;accent-color:var(--g);flex:none}
+.ck input:checked+span{text-decoration:line-through;color:var(--mute)}
+.prog{height:14px;background:var(--line);border-radius:9px;overflow:hidden;margin:8px 0}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--g2),var(--acc));transition:width .6s}
+details{font-size:.85rem;color:var(--mute);margin-top:10px}
+.q{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:16px;margin:0 0 18px;min-width:0}.q legend{padding:0 6px;line-height:1.5}.q .ck:last-child{border-bottom:0}#quiz-result{padding:18px}#quiz-result h3{margin-top:0}
+footer{padding:30px 0 40px;border-top:1px solid var(--line);margin-top:30px;color:var(--mute);font-size:.88rem}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.bar i{width:var(--w)}}
+</style>
+</head>
+<body>
+<header>
+<span class="brand">🌿 Zero Waste Living ID</span>
+<nav aria-label="Halaman">
+<a href="#beranda">Beranda</a><a href="#memahami">Memahami Zero Waste</a><a href="#rumah">Zero Waste di Rumah</a><a href="#konsumsi">Konsumsi Bijak</a><a href="#aksi">Aksi &amp; Komunitas</a><a href="#evaluasi">Evaluasi</a>
+</nav>
+<button id="th" aria-label="Ganti tema terang atau gelap">◐</button>
+</header>
+
+<main>
+<!-- BERANDA -->
+<div class="pg" id="p-beranda">
+<section class="hero">
+<div class="leaves" aria-hidden="true">
+<i style="--x:6%;--s:28px;--t:11s;--d:-2s"></i><i style="--x:22%;--s:18px;--t:9s;--d:-6s"></i><i style="--x:41%;--s:34px;--t:13s;--d:-4s"></i><i style="--x:58%;--s:22px;--t:10s;--d:-8s"></i><i style="--x:74%;--s:30px;--t:12s;--d:-1s"></i><i style="--x:90%;--s:20px;--t:9s;--d:-5s"></i>
+</div>
+<div class="wrap">
+<h1>Zero Waste Living ID</h1>
+<p>Seni mengurangi sampah dan konsumsi bijak sehari-hari.</p>
+<p>Sampah tidak bermula di tempat pembuangan, tetapi dari keputusan kecil kita: apa yang dibeli, berapa banyak yang dimasak, dan apa yang dipakai sekali lalu dibuang. Situs ini mengajak Anda hidup lebih ringan sampah secara realistis, tanpa harus sempurna, dengan pijakan data dan riset.</p>
+<a class="btn" href="#memahami">Mulai dari Halaman 2</a><a class="btn o" href="#aksi">Ikut Tantangan 30 Hari</a>
+</div>
+</section>
+<div class="wrap">
+<div class="stats rv">
+<div class="st"><span class="big"><span class="n" data-to="3.4" data-d="2">0</span></span><small>miliar ton sampah kota dunia diproyeksikan pada 2050, naik dari 2,01 miliar ton pada 2016 (Kaza dkk., 2018)</small></div>
+<div class="st"><span class="big"><span class="n" data-to="60">0</span>%</span><small>dari 1,05 miliar ton makanan terbuang pada 2022 berasal dari rumah tangga (UNEP, 2024)</small></div>
+<div class="st"><span class="big"><span class="n" data-to="9">0</span>%</span><small>dari sekitar 6,3 miliar ton sampah plastik sampai 2015 yang didaur ulang (Geyer dkk., 2017)</small></div>
+<div class="st"><span class="big"><span class="n" data-to="39">0</span>%</span><small>timbulan sampah nasional 2024 adalah sisa makanan, disusul plastik ±19,5% (SIPSN via ANTARA, 2025)</small></div>
+</div>
+<section class="sec" style="border:0">
+<h2>Dapur adalah pusatnya</h2>
+<p>Di Indonesia, sisa makanan dan plastik adalah dua komposisi terbesar sampah nasional. Karena itu perubahan paling berarti sering dimulai dari cara kita belanja, memasak, dan memilah di rumah.</p>
+</section>
+<section class="sec">
+<h2>Isi situs ini</h2>
+<div class="rows">
+<div><b><a href="#memahami">Memahami Zero Waste</a></b><br>Definisi, hierarki, dan aturan di Indonesia.</div>
+<div><b><a href="#rumah">Zero Waste di Rumah</a></b><br>Dapur, kompos, plastik sekali pakai, dan memilah.</div>
+<div><b><a href="#konsumsi">Konsumsi Bijak</a></b><br>Belanja, pakaian, elektronik, dan waspada greenwashing.</div>
+<div><b><a href="#aksi">Aksi &amp; Komunitas</a><a href="#evaluasi">Evaluasi</a></b><br>Tantangan 30 hari, bank sampah, dan sumber belajar.</div>
+</div>
+</section>
+<section class="sec"><p class="note"><b>Prinsip kami: progres, bukan kesempurnaan.</b> Zero waste adalah arah, bukan lomba tanpa sampah sama sekali. Mulailah dari satu kebiasaan yang paling mudah bagi Anda.</p></section>
+</div>
+</div>
+
+<!-- MEMAHAMI -->
+<div class="pg" id="p-memahami" hidden>
+<div class="wrap">
+<section class="sec" style="border:0;padding-top:40px">
+<h2>Apa itu zero waste?</h2>
+<p>Menurut definisi Zero Waste International Alliance (ZWIA) yang diperbarui pada Desember 2018, zero waste adalah upaya menjaga seluruh sumber daya melalui produksi, konsumsi, penggunaan ulang, dan pemulihan produk, kemasan, serta material secara bertanggung jawab, tanpa pembakaran dan tanpa pelepasan ke tanah, air, atau udara yang mengancam lingkungan maupun kesehatan manusia (U.S. EPA, t.t.).</p>
+<p>Ukuran kinerjanya adalah mengalihkan sedikitnya 90% bahan buangan dari TPA dan insinerator; pembakaran tidak dihitung sebagai pengalihan (ZWIA, t.t.). Jadi zero waste adalah arah dan cara berpikir tentang sumber daya, bukan klaim “tanpa sampah sama sekali”.</p>
+</section>
+<section class="sec rv">
+<h2>Hierarki pengelolaan sampah</h2>
+<p>Urutan prioritas dari yang terbaik menurut Direktif Kerangka Sampah Uni Eropa 2008/98/EC. Yang paling hemat adalah tidak menghasilkan sampah.</p>
+<div class="bar"><i style="--w:100%;--c:#1f4a2b">1 Pencegahan</i></div>
+<div class="bar"><i style="--w:84%;--c:#2c6a3d;--dl:.15s">2 Persiapan penggunaan ulang</i></div>
+<div class="bar"><i style="--w:68%;--c:#3f7d4a;--dl:.3s">3 Daur ulang</i></div>
+<div class="bar"><i style="--w:54%;--c:#8a7a2e;--dl:.45s">4 Pemulihan lain, termasuk energi</i></div>
+<div class="bar"><i style="--w:40%;--c:#a0502f;--dl:.6s">5 Pembuangan</i></div>
+<p>Daur ulang bukan jalan keluar tunggal. Secara global hanya sekitar 9% plastik yang pernah didaur ulang, dan hanya sekitar 10% dari jumlah itu yang didaur ulang lebih dari sekali. Daur ulang menunda, bukan menghindari, pembuangan akhir (Geyer dkk., 2017).</p>
+</section>
+<section class="sec">
+<h2>5R untuk keseharian</h2>
+<p>Bea Johnson (2013) merumuskan lima langkah berurutan:</p>
+<div class="step"><b>1</b><div><b>Refuse (tolak)</b><br>Tolak yang tidak perlu, seperti kantong plastik, brosur, sedotan, dan suvenir.</div></div>
+<div class="step"><b>2</b><div><b>Reduce (kurangi)</b><br>Miliki dan beli lebih sedikit.</div></div>
+<div class="step"><b>3</b><div><b>Reuse (pakai ulang)</b><br>Pilih barang yang bisa dipakai berulang dan diperbaiki.</div></div>
+<div class="step"><b>4</b><div><b>Recycle (daur ulang)</b><br>Untuk yang tidak bisa ditolak, dikurangi, atau dipakai ulang.</div></div>
+<div class="step"><b>5</b><div><b>Rot (kompos)</b><br>Kembalikan sisa organik ke tanah.</div></div>
+</section>
+<section class="sec">
+<h2>Aturan dan target di Indonesia</h2>
+<div class="rows">
+<div><b>UU No. 18 Tahun 2008</b><br>Pengelolaan sampah terdiri atas pengurangan (pembatasan timbulan, pendauran ulang, pemanfaatan kembali) dan penanganan (pemilahan, pengumpulan, pengangkutan, pengolahan, pemrosesan akhir).</div>
+<div><b>Perpres No. 97 Tahun 2017 (Jakstranas 2017–2025)</b><br>Target pengurangan 30% dan penanganan 70% pada 2025. Pemerintah mengakui target ini belum tercapai (Kompas.com, 2025).</div>
+<div><b>Target terbaru</b><br>RPJMN 2025–2029 menargetkan 100% sampah terkelola pada 2029. Timbulan nasional kini sekitar 144.562 ton per hari, dan Perpres Jakstranas yang baru sedang disusun (KLH/BPLH, 2026).</div>
+<div><b>Permen LHK No. P.75/2019</b><br>Produsen manufaktur, jasa makanan dan minuman, serta ritel menyusun peta jalan pengurangan sampah 2020–2029 dengan target 30% pada 2029, mencakup plastik, kaleng aluminium, kaca, dan kertas.</div>
+</div>
+<p class="note"><b>Kaitan dengan SDG.</b> SDG 12 memuat target 12.3, yaitu menurunkan separuh sampah makanan per kapita di tingkat ritel dan konsumen pada 2030, dan target 12.5, yaitu mengurangi timbulan sampah secara signifikan lewat pencegahan, pengurangan, daur ulang, dan penggunaan ulang (United Nations, 2015; UNEP, 2024).</p>
+</section>
+<section class="sec">
+<h2>Mitos dan fakta</h2>
+<p>Ketuk kartu untuk melihat faktanya.</p>
+<div class="g3">
+<button class="flip"><div class="fi"><span>“Zero waste berarti tidak boleh ada sampah.”<em>Ketuk untuk membalik</em></span><span class="bk">Ukurannya pengalihan sedikitnya 90%, dan prinsipnya adalah bergerak menuju nol.</span></div></button>
+<button class="flip"><div class="fi"><span>“Yang penting didaur ulang.”<em>Ketuk untuk membalik</em></span><span class="bk">Pencegahan lebih utama; daur ulang hanya menunda pembuangan (Geyer dkk., 2017).</span></div></button>
+<button class="flip"><div class="fi"><span>“Dibakar jadi listrik berarti zero waste.”<em>Ketuk untuk membalik</em></span><span class="bk">Menurut ZWIA, pembakaran tidak dihitung sebagai pengalihan.</span></div></button>
+</div>
+</section>
+</div>
+</div>
+
+<!-- RUMAH -->
+<div class="pg" id="p-rumah" hidden>
+<div class="wrap">
+<section class="sec" style="border:0;padding-top:40px">
+<h2>Mulai dari audit sampah 7 hari</h2>
+<p>Selama seminggu, catat atau foto isi tempat sampah Anda sebelum dibuang. Secara nasional, sisa makanan dan plastik mendominasi timbulan (data SIPSN 2024), jadi pola di rumah Anda mungkin serupa. Pilih dua jenis sampah terbanyak sebagai target pertama.</p>
+</section>
+<section class="sec">
+<h2>Dapur: kurangi sisa makanan</h2>
+<div class="stats rv" style="margin-top:0">
+<div class="st"><span class="big"><span class="n" data-to="79">0</span> kg</span><small>makanan dibuang per orang per tahun, rata-rata rumah tangga dunia (UNEP, 2024)</small></div>
+<div class="st"><span class="big">115–184</span><small>kg per kapita per tahun susut dan sisa pangan Indonesia 2000–2019; kerugian Rp213–551 triliun per tahun (4–5% PDB). Terbesar di tahap konsumsi (Bappenas, 2021; FAO, 2022)</small></div>
+</div>
+<div class="rows" style="margin-top:12px">
+<div><b>Rencanakan.</b> Susun menu mingguan dan daftar belanja, lalu cek isi kulkas sebelum belanja.</div>
+<div><b>Putar stok.</b> Taruh bahan lama di depan, bahan baru di belakang.</div>
+<div><b>Porsi secukupnya.</b> Masak sesuai kebutuhan, dan olah sisa (nasi menjadi nasi goreng, kulit sayur menjadi kaldu).</div>
+<div><b>Bukti bahwa bisa.</b> Di Inggris, kemitraan publik-swasta membantu menurunkan lebih dari seperempat sampah makanan rumah tangga per kapita pada 2007–2018 (UNEP, 2024).</div>
+</div>
+</section>
+<section class="sec">
+<h2>Kompos: ubah sisa jadi sumber daya</h2>
+<p>Keranjang Takakura adalah metode pengomposan aerob skala rumah tangga yang murah dan sudah luas diperkenalkan di Indonesia (Hibino dkk., 2023). Dalam studi di Kota Bandung yang membandingkan enam skenario pengolahan 1 ton sisa makanan, kompos rumahan menghasilkan emisi gas rumah kaca terendah dan nilai ekonomi bersih tertinggi, sedangkan penimbunan di TPA beremisi tertinggi.</p>
+<div class="stats rv" style="margin-top:6px">
+<div class="st"><span class="big">−601</span><small>kg CO₂e per ton: kompos rumahan, emisi terendah</small></div>
+<div class="st"><span class="big" style="color:#a0502f">628</span><small>kg CO₂e per ton: penimbunan di TPA, emisi tertinggi</small></div>
+</div>
+<p>Karena kompos rumahan dinilai sulit diterapkan massal, peneliti menyarankan untuk Bandung satu pusat kompos besar dan pusat kompos kecil di tiap kecamatan (Hibino dkk., 2023).</p>
+<p class="note"><b>Tips praktis:</b> cincang sisa agar cepat terurai, jaga kelembapan (lembap tetapi tidak becek), dan aduk berkala agar tetap beroksigen. Belum bisa mengompos sendiri? Setor sisa organik ke pusat kompos, TPS3R, atau komunitas di sekitar Anda.</p>
+</section>
+<section class="sec">
+<h2>Plastik sekali pakai: kurangi dari sumbernya</h2>
+<p>Indonesia menghasilkan sekitar 6,8 juta ton sampah plastik per tahun. Sekitar 70% (4,8 juta ton) tidak terkelola dan sekitar 9% (620 ribu ton) bocor ke perairan dan laut (NPAP, 2020).</p>
+<p>Bawa tas, botol minum, dan wadah makan sendiri; pilih isi ulang dan kemasan besar. Pakai terus perlengkapan yang sudah ada. Menurut kajian siklus hidup UNEP (2020), agar dampak iklimnya lebih kecil daripada satu kantong plastik sekali pakai, tas perlu dipakai:</p>
+<span class="chip">Kain: 50–150 kali</span><span class="chip">Polipropilena tebal: 10–20 kali</span><span class="chip">Polietilena tipis: 5–10 kali</span>
+<p>Membeli tas baru setiap belanja justru tidak membantu.</p>
+</section>
+<section class="sec">
+<h2>Kamar mandi dan kebersihan</h2>
+<p>Terapkan urutan 5R yang sama (Johnson, 2013): tolak sampel dan kemasan berlebih, pilih produk isi ulang atau sabun batang, pakai lap dan handuk kain, serta habiskan produk sebelum membeli yang baru.</p>
+</section>
+<section class="sec rv">
+<h2>Pilah dari rumah</h2>
+<p>KLH/BPLH menekankan pemilahan di sumber sebagai fondasi pengelolaan sampah agar TPA hanya menerima residu (KLH/BPLH, 2026). Siapkan tiga wadah:</p>
+<div class="bins">
+<div class="bin" style="background:#3f7d4a"><h3>Organik</h3>Kompos atau setor.</div>
+<div class="bin" style="background:#3a6e8f"><h3>Anorganik</h3>Bersih dan kering; ke bank sampah atau pengepul.</div>
+<div class="bin" style="background:#5c5f5a"><h3>Residu</h3>Sisanya yang tidak bisa dipilah.</div>
+</div>
+</section>
+</div>
+</div>
+
+<!-- KONSUMSI -->
+<div class="pg" id="p-konsumsi" hidden>
+<div class="wrap">
+<section class="sec" style="border:0;padding-top:40px">
+<h2>Sebelum membeli, tanyakan lima hal</h2>
+<div class="step"><b>1</b><div>Apakah saya benar-benar membutuhkannya?</div></div>
+<div class="step"><b>2</b><div>Apakah saya sudah punya yang serupa?</div></div>
+<div class="step"><b>3</b><div>Bisakah saya meminjam, menyewa, atau membeli bekas?</div></div>
+<div class="step"><b>4</b><div>Apakah awet dan bisa diperbaiki?</div></div>
+<div class="step"><b>5</b><div>Bagaimana kemasannya, dan ke mana ia berakhir?</div></div>
+<p style="color:var(--mute);font-size:.9rem">Daftar ini adalah penerapan urutan 5R (Johnson, 2013), bukan aturan baku.</p>
+</section>
+<section class="sec">
+<h2>Pakaian: pakai lebih lama</h2>
+<div class="stats rv" style="margin-top:0">
+<div class="st"><span class="big">2×</span><small>produksi pakaian sekitar dua kali lipat antara 2000 dan 2015</small></div>
+<div class="st"><span class="big"><span class="n" data-to="36">0</span>%</span><small>penurunan rata-rata jumlah pemakaian per pakaian dibanding 15 tahun sebelumnya</small></div>
+<div class="st"><span class="big">&lt;1%</span><small>bahan pakaian didaur ulang menjadi pakaian baru</small></div>
+</div>
+<p>Setara satu truk sampah tekstil dibuang atau dibakar setiap detik. Produksi tekstil menghasilkan 1,2 miliar ton gas rumah kaca pada 2015, dan pencucian melepas sekitar setengah juta ton mikrofiber plastik ke laut per tahun (Ellen MacArthur Foundation, 2017).</p>
+<p class="note"><b>Praktik:</b> padu-padankan pakaian yang ada, perbaiki, tukar atau beli bekas, beli lebih sedikit tetapi awet, dan cuci seperlunya.</p>
+</section>
+<section class="sec">
+<h2>Elektronik: perpanjang umur perangkat</h2>
+<p>Pada 2022 dunia menghasilkan 62 juta ton sampah elektronik, dan hanya 22,3% yang terdokumentasi dikumpulkan serta didaur ulang secara formal. Angkanya diproyeksikan naik menjadi 82 juta ton pada 2030, dengan pendorong berupa konsumsi lebih tinggi, siklus hidup produk lebih pendek, dan opsi reparasi terbatas (Baldé dkk., 2024).</p>
+<p class="note"><b>Praktik:</b> pakai selama masih berfungsi, servis atau ganti baterai sebelum ganti perangkat, jual atau donasikan, dan serahkan perangkat rusak ke titik pengumpulan e-waste resmi, bukan ke tempat sampah biasa.</p>
+</section>
+<section class="sec">
+<h2>Belanja pangan dan kemasan</h2>
+<p>Bawa wadah sendiri, pilih produk curah atau isi ulang, dan pilih kemasan guna ulang. Produsen di Indonesia wajib menyusun peta jalan pengurangan sampah (Permen LHK No. P.75/2019), sehingga konsumen dapat mendukung merek yang terbuka melaporkan target dan capaiannya.</p>
+</section>
+<section class="sec">
+<h2>Waspada greenwashing</h2>
+<p>Greenwashing adalah praktik menyesatkan konsumen tentang kinerja lingkungan perusahaan atau manfaat lingkungan produk, dan lebih mudah terjadi ketika regulasi lemah atau tidak pasti (Delmas &amp; Burbano, 2011). Contohnya klaim “zero waste to landfill” oleh perusahaan yang membakar separuh materialnya atau lebih: itu tidak sesuai definisi ZWIA (ZWIA, t.t.).</p>
+<p><b>Cek tiga hal sebelum percaya klaim hijau:</b></p>
+<div class="rows">
+<div>Apakah klaimnya spesifik dan dapat diverifikasi (angka, sertifikasi, laporan), bukan sekadar “ramah lingkungan”?</div>
+<div>Apakah hanya satu aspek yang ditonjolkan sementara dampak lain diabaikan?</div>
+<div>Apakah produknya tetap bersifat sekali pakai?</div>
+</div>
+</section>
+<section class="sec">
+<h2>Mengapa niat sering tidak menjadi tindakan?</h2>
+<p>Kollmuss dan Agyeman (2002) menunjukkan bahwa pengetahuan dan kepedulian lingkungan saja tidak otomatis mengubah perilaku; ada hambatan seperti kebiasaan, norma sosial, dan faktor eksternal. Menurut ulasan mereka, pendekatan community-based social marketing cukup berhasil menjembatani jarak itu.</p>
+<p class="note"><b>Strategi praktis:</b> mulai dari satu atau dua kebiasaan, atur lingkungan (gantung tas belanja di dekat pintu), dan ajak teman atau tetangga.</p>
+</section>
+</div>
+</div>
+
+<!-- AKSI -->
+<div class="pg" id="p-aksi" hidden>
+<div class="wrap">
+<section class="sec" style="border:0;padding-top:40px">
+<h2>Tantangan 30 hari</h2>
+<p>Centang setiap langkah yang sudah Anda lakukan. Kemajuan tersimpan di peramban ini.</p>
+<div class="prog" role="progressbar" aria-label="Kemajuan tantangan"><i id="pb"></i></div>
+<p id="pt" style="font-weight:600;margin-top:0">0 dari 12 langkah</p>
+<h3 style="margin-top:18px">Minggu 1: audit dan tolak</h3>
+<label class="ck"><input type="checkbox"><span>Audit sampah 7 hari</span></label>
+<label class="ck"><input type="checkbox"><span>Bawa tas, botol, dan wadah sendiri</span></label>
+<label class="ck"><input type="checkbox"><span>Tolak sedotan dan kantong plastik</span></label>
+<h3 style="margin-top:18px">Minggu 2: dapur</h3>
+<label class="ck"><input type="checkbox"><span>Buat menu mingguan dan daftar belanja</span></label>
+<label class="ck"><input type="checkbox"><span>Putar stok bahan makanan</span></label>
+<label class="ck"><input type="checkbox"><span>Mulai mengompos atau cari tempat setor sisa organik</span></label>
+<h3 style="margin-top:18px">Minggu 3: pilah dan setor</h3>
+<label class="ck"><input type="checkbox"><span>Siapkan tiga wadah pemilahan</span></label>
+<label class="ck"><input type="checkbox"><span>Temukan bank sampah atau TPS3R terdekat</span></label>
+<label class="ck"><input type="checkbox"><span>Lakukan setoran pertama</span></label>
+<h3 style="margin-top:18px">Minggu 4: konsumsi</h3>
+<label class="ck"><input type="checkbox"><span>Terapkan lima pertanyaan sebelum membeli</span></label>
+<label class="ck"><input type="checkbox"><span>Perbaiki satu barang yang rusak</span></label>
+<label class="ck"><input type="checkbox"><span>Ajak tiga orang ikut tantangan</span></label>
+<h3 style="margin-top:22px">Mengukur dampak</h3>
+<p>Catat tiap minggu: volume sampah residu, berapa kali Anda memakai wadah sendiri, dan jumlah sisa makanan yang terbuang. Bandingkan minggu pertama dengan minggu keempat.</p>
+</section>
+<section class="sec">
+<h2>Bank sampah dan TPS3R</h2>
+<p>Bank sampah pertama didirikan pada 2008 oleh warga di Kabupaten Bantul, DI Yogyakarta. Modelnya menerapkan 3R: sampah dipilah di rumah, organik diolah menjadi kompos, dan anorganik dipakai ulang, didaur ulang, atau ditabung dengan semboyan “from trash to cash”. Model ini mendorong terbitnya Permen LH No. 13 Tahun 2012 tentang pedoman 3R melalui bank sampah (Ahmad, 2022).</p>
+<p class="note"><b>Cara bergabung:</b> tanyakan ke RT/RW, kelurahan, atau dinas lingkungan hidup setempat.</p>
+</section>
+<section class="sec">
+<h2>Gerakan nasional dan peran warga</h2>
+<p>KLH memperluas Gerakan Indonesia ASRI (Aman, Sehat, Rapi, dan Indah) untuk mendorong pemilahan sampah dan perubahan perilaku, dengan target 100% sampah terkelola pada 2029 (Bisnis.com, 2026; Kompas.com, 2026). Peran Anda: pilah dari rumah, kurangi sampah sejak pembelian, dukung layanan pengelolaan di lingkungan Anda, dan dorong produsen untuk transparan.</p>
+</section>
+<section class="sec rv">
+<h2>Mengapa aksi bersama berarti</h2>
+<p>Dalam studi Jambeck dkk. (2015), 20 negara teratas menyumbang 83% sampah plastik yang salah kelola dan berpotensi masuk laut; mengurangi sampah itu 50% dapat menurunkan masukan plastik ke laut hampir 40% (angka dari ringkasan studi oleh UC Santa Barbara). Indonesia termasuk negara dengan kontribusi terbesar dalam analisis tersebut.</p>
+<div class="stats" style="margin-top:0"><div class="st"><span class="big"><span class="n" data-to="83">0</span>%</span><small>sampah plastik salah kelola berasal dari 20 negara teratas</small></div><div class="st"><span class="big">~40%</span><small>penurunan masukan plastik ke laut bila sampah itu dikurangi 50%</small></div></div>
+<p>Aksi rumah tangga bernilai ketika dikalikan oleh banyak orang dan didukung sistem pengelolaan yang berfungsi.</p>
+</section>
+<section class="sec">
+<h2>Sumber belajar lanjutan</h2>
+<div class="rows">
+<div><b>SIPSN KLH/BPLH</b> untuk data persampahan daerah Anda.</div>
+<div><b>UNEP Food Waste Index Report 2024</b> untuk sampah makanan.</div>
+<div><b>Zero Waste International Alliance</b> untuk definisi dan prinsip.</div>
+<div><b>World Bank, What a Waste 2.0</b> untuk gambaran global.</div>
+</div>
+<p class="note"><b>Penutup.</b> Zero waste dimulai dari rumah, tetapi tidak berhenti di sana: ia membutuhkan sistem pengelolaan, kebijakan produsen, dan komunitas. Bagikan situs ini ke satu orang hari ini.</p>
+<button class="btn" id="sh">Bagikan situs</button>
+</section>
+</div>
+</div>
+
+<!-- EVALUASI -->
+<div class="pg" id="p-evaluasi" hidden>
+  <div class="wrap">
+    <section class="sec" style="border:0;padding-top:40px">
+      <h2>Evaluasi: Seberapa Paham Kamu tentang Zero Waste?</h2>
+      <p>Jawablah 10 pertanyaan berikut berdasarkan materi yang telah dipelajari. Pilih satu jawaban paling tepat untuk setiap soal, lalu tekan tombol <b>Lihat Nilai</b>.</p>
+      <p class="note"><b>Petunjuk:</b> Setiap jawaban benar bernilai 10 poin. Nilai maksimal adalah 100.</p>
+    </section>
+    <section class="sec" id="quiz">
+      <div id="quiz-questions">
+        <fieldset class="q"><legend><b>1. Apa yang dimaksud dengan konsep zero waste?</b></legend>
+          <label class="ck"><input type="radio" name="q0" value="0"><span>Menghilangkan seluruh aktivitas konsumsi manusia</span></label>
+          <label class="ck"><input type="radio" name="q0" value="1"><span>Menjaga sumber daya melalui produksi, konsumsi, penggunaan ulang, dan pemulihan material secara bertanggung jawab</span></label>
+          <label class="ck"><input type="radio" name="q0" value="2"><span>Mengumpulkan semua sampah untuk dibakar</span></label>
+          <label class="ck"><input type="radio" name="q0" value="3"><span>Mengutamakan penggunaan barang sekali pakai</span></label>
+        </fieldset>
+        <fieldset class="q"><legend><b>2. Menurut hierarki pengelolaan sampah, tindakan yang paling diutamakan adalah ...</b></legend>
+          <label class="ck"><input type="radio" name="q1" value="0"><span>Pembuangan</span></label>
+          <label class="ck"><input type="radio" name="q1" value="1"><span>Pemulihan energi</span></label>
+          <label class="ck"><input type="radio" name="q1" value="2"><span>Pencegahan timbulan sampah</span></label>
+          <label class="ck"><input type="radio" name="q1" value="3"><span>Daur ulang</span></label>
+        </fieldset>
+        <fieldset class="q"><legend><b>3. Apa arti prinsip Refuse dalam 5R?</b></legend>
+          <label class="ck"><input type="radio" name="q2" value="0"><span>Menolak barang yang tidak diperlukan, seperti sedotan atau kantong plastik</span></label>
+          <label class="ck"><input type="radio" name="q2" value="1"><span>Mengolah sampah menjadi kompos</span></label>
+          <label class="ck"><input type="radio" name="q2" value="2"><span>Membeli barang dalam jumlah lebih banyak</span></label>
+          <label class="ck"><input type="radio" name="q2" value="3"><span>Membuang barang yang masih dapat digunakan</span></label>
+        </fieldset>
+        <fieldset class="q"><legend><b>4. Berdasarkan UU No. 18 Tahun 2008, pengelolaan sampah terdiri atas dua kegiatan utama, yaitu ...</b></legend>
+          <label class="ck"><input type="radio" name="q3" value="0"><span>Pembakaran dan penimbunan</span></label>
+          <label class="ck"><input type="radio" name="q3" value="1"><span>Pengurangan dan penanganan</span></label>
+          <label class="ck"><input type="radio" name="q3" value="2"><span>Pembelian dan penjualan</span></label>
+          <label class="ck"><input type="radio" name="q3" value="3"><span>Pengangkutan dan pembakaran saja</span></label>
+        </fieldset>
+        <fieldset class="q"><legend><b>5. Langkah yang tepat untuk mengurangi sampah makanan di rumah adalah ...</b></legend>
+          <label class="ck"><input type="radio" name="q4" value="0"><span>Memasak sebanyak mungkin tanpa perencanaan</span></label>
+          <label class="ck"><input type="radio" name="q4" value="1"><span>Menyimpan bahan makanan tanpa memperhatikan urutan</span></label>
+          <label class="ck"><input type="radio" name="q4" value="2"><span>Membuang sisa makanan setiap hari</span></label>
+          <label class="ck"><input type="radio" name="q4" value="3"><span>Menyusun menu, membuat daftar belanja, dan memasak sesuai kebutuhan</span></label>
+        </fieldset>
+        <fieldset class="q"><legend><b>6. Apa fungsi utama keranjang Takakura?</b></legend>
+          <label class="ck"><input type="radio" name="q5" value="0"><span>Menyimpan sampah elektronik</span></label>
+          <label class="ck"><input type="radio" name="q5" value="1"><span>Mengolah sampah organik menjadi kompos melalui proses aerob</span></label>
+          <label class="ck"><input type="radio" name="q5" value="2"><span>Membakar sampah plastik</span></label>
+          <label class="ck"><input type="radio" name="q5" value="3"><span>Mencampur sampah organik dan residu</span></label>
+        </fieldset>
+        <fieldset class="q"><legend><b>7. Bagaimana cara memilah sampah dari rumah sesuai materi?</b></legend>
+          <label class="ck"><input type="radio" name="q6" value="0"><span>Mencampur semua jenis sampah dalam satu wadah</span></label>
+          <label class="ck"><input type="radio" name="q6" value="1"><span>Memisahkan sampah berdasarkan warna kemasan saja</span></label>
+          <label class="ck"><input type="radio" name="q6" value="2"><span>Memisahkan sampah organik, anorganik, dan residu</span></label>
+          <label class="ck"><input type="radio" name="q6" value="3"><span>Membuang semua sampah ke saluran air</span></label>
+        </fieldset>
+        <fieldset class="q"><legend><b>8. Tindakan yang mencerminkan konsumsi bijak sebelum membeli barang adalah ...</b></legend>
+          <label class="ck"><input type="radio" name="q7" value="0"><span>Membeli karena sedang tren</span></label>
+          <label class="ck"><input type="radio" name="q7" value="1"><span>Mengutamakan kemasan yang paling banyak</span></label>
+          <label class="ck"><input type="radio" name="q7" value="2"><span>Membeli barang baru meskipun sudah memiliki barang serupa</span></label>
+          <label class="ck"><input type="radio" name="q7" value="3"><span>Mempertimbangkan kebutuhan, kemungkinan meminjam, daya tahan, dan kemasan</span></label>
+        </fieldset>
+        <fieldset class="q"><legend><b>9. Apa yang dimaksud dengan greenwashing?</b></legend>
+          <label class="ck"><input type="radio" name="q8" value="0"><span>Praktik menyesatkan konsumen mengenai kinerja atau manfaat lingkungan suatu produk/perusahaan</span></label>
+          <label class="ck"><input type="radio" name="q8" value="1"><span>Kegiatan menanam pohon di lingkungan rumah</span></label>
+          <label class="ck"><input type="radio" name="q8" value="2"><span>Proses mengubah sampah organik menjadi kompos</span></label>
+          <label class="ck"><input type="radio" name="q8" value="3"><span>Kegiatan memilah sampah anorganik</span></label>
+        </fieldset>
+        <fieldset class="q"><legend><b>10. Mengapa aksi komunitas penting dalam penerapan zero waste?</b></legend>
+          <label class="ck"><input type="radio" name="q9" value="0"><span>Karena tanggung jawab pengelolaan sampah hanya milik komunitas</span></label>
+          <label class="ck"><input type="radio" name="q9" value="1"><span>Karena aksi banyak orang dapat memperluas dampak perubahan dan mendukung sistem pengelolaan</span></label>
+          <label class="ck"><input type="radio" name="q9" value="2"><span>Karena komunitas dapat menggantikan seluruh kebijakan pemerintah</span></label>
+          <label class="ck"><input type="radio" name="q9" value="3"><span>Karena sampah tidak perlu dipilah jika dilakukan bersama</span></label>
+        </fieldset>
+      </div>
+      <button class="btn" type="button" id="grade-quiz">Lihat Nilai</button>
+      <button class="btn o" type="button" id="reset-quiz">Ulangi Evaluasi</button>
+      <div id="quiz-result" class="note" role="status" aria-live="polite" hidden style="margin-top:20px"></div>
+    </section>
+  </div>
+</div>
+
+</main>
+
+<footer><div class="wrap">
+<details><summary>Referensi</summary>
+<p>Ahmad (2022), Jurnal Ilmu Lingkungan 20(2). ANTARA (2025), data SIPSN KLH 2024. Baldé dkk. (2024), Global E-waste Monitor 2024, ITU &amp; UNITAR. Bappenas (2021), Kajian food loss and waste di Indonesia. Bisnis.com (2026, 10 Juni). Delmas &amp; Burbano (2011), California Management Review 54(1). Ellen MacArthur Foundation (2017), A new textiles economy. European Parliament &amp; Council (2008), Directive 2008/98/EC. FAO (2022). Geyer dkk. (2017), Science Advances 3(7). Hibino dkk. (2023), Int. J. Recycling of Organic Waste in Agriculture 12(1). Jambeck dkk. (2015), Science 347(6223). Johnson (2013), Zero waste home, Scribner. Kaza dkk. (2018), What a waste 2.0, World Bank. KLH/BPLH (2026, 8 September; 23 April) dan SIPSN. Kollmuss &amp; Agyeman (2002), Environmental Education Research 8(3). Kompas.com (2025, 10 Maret; 2026, 5 Februari). NPAP (2020), Radically reducing plastic pollution in Indonesia. Perpres No. 97/2017. Permen LHK No. P.75/2019. UU No. 18/2008. UNEP (2020; 2024). United Nations (2015), A/RES/70/1. U.S. EPA (t.t.). Zero Waste International Alliance (t.t.).</p>
+</details>
+<p>Angka dicek pada November 2026. Data SIPSN sering diperbarui; cek ulang tahun datanya sebelum dipakai.</p>
+</div></footer>
+
+<script>
+const V=['beranda','memahami','rumah','konsumsi','aksi','evaluasi'];
+function show(){let h=location.hash.slice(1);if(V.indexOf(h)<0)h='beranda';
+document.querySelectorAll('.pg').forEach(p=>p.hidden=p.id!=='p-'+h);
+document.querySelectorAll('nav a').forEach(a=>{const on=a.hash==='#'+h;a.classList.toggle('on',on);if(on)a.scrollIntoView({inline:'center',block:'nearest'})});
+window.scrollTo(0,0)}
+addEventListener('hashchange',show);show();
+function cnt(el){const t=+el.dataset.to,d=+el.dataset.d||0,s=performance.now();(function f(n){const p=Math.min((n-s)/1400,1),v=t*(1-Math.pow(1-p,3));el.textContent=v.toLocaleString('id-ID',{minimumFractionDigits:d,maximumFractionDigits:d});if(p<1)requestAnimationFrame(f)})(s)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!e.target.classList.contains('in')){e.target.classList.add('in');e.target.querySelectorAll('.n').forEach(cnt)}}),{threshold:.2});
+document.querySelectorAll('.rv').forEach(x=>io.observe(x));
+document.querySelectorAll('.flip').forEach(f=>f.addEventListener('click',()=>f.classList.toggle('on')));
+const cks=[...document.querySelectorAll('.ck input')];let saved=[];
+try{saved=JSON.parse(localStorage.getItem('zwl-ck')||'[]')}catch(e){}
+function upd(){const n=cks.filter(c=>c.checked).length;document.getElementById('pb').style.width=(n/cks.length*100)+'%';document.getElementById('pt').textContent=n+' dari '+cks.length+' langkah'+(n===cks.length?' ✓ Selesai, selamat!':'');}
+cks.forEach((c,i)=>{c.checked=!!saved[i];c.addEventListener('change',()=>{upd();try{localStorage.setItem('zwl-ck',JSON.stringify(cks.map(x=>x.checked)))}catch(e){}})});upd();
+document.getElementById('th').onclick=()=>{const r=document.documentElement,d=matchMedia('(prefers-color-scheme:dark)').matches;r.dataset.theme=(r.dataset.theme||(d?'dark':'light'))==='dark'?'light':'dark'};
+document.getElementById('sh').onclick=function(){try{if(navigator.share){navigator.share({title:document.title,url:location.href})}else{navigator.clipboard.writeText(location.href);this.textContent='Tautan disalin ✓'}}catch(e){}};
+
+const quizAnswers=[1,2,0,1,3,1,2,3,0,1];
+const quizExplanations=[
+  "Zero waste menjaga sumber daya melalui produksi, konsumsi, penggunaan ulang, dan pemulihan material secara bertanggung jawab.",
+  "Pencegahan berada pada urutan pertama hierarki karena cara terbaik adalah tidak menghasilkan sampah sejak awal.",
+  "Refuse berarti menolak barang yang tidak diperlukan, misalnya sedotan, brosur, atau kantong plastik.",
+  "UU No. 18 Tahun 2008 membagi pengelolaan sampah menjadi pengurangan dan penanganan.",
+  "Perencanaan menu, daftar belanja, pengaturan stok, dan porsi sesuai kebutuhan membantu mengurangi sisa makanan.",
+  "Takakura adalah metode pengomposan aerob untuk mengolah sampah organik skala rumah tangga.",
+  "Materi menyarankan tiga wadah: organik, anorganik yang bersih dan kering, serta residu.",
+  "Konsumsi bijak mempertimbangkan kebutuhan, barang serupa yang sudah dimiliki, opsi pinjam/sewa/bekas, daya tahan, dan kemasan.",
+  "Greenwashing adalah praktik menyesatkan konsumen tentang kinerja lingkungan perusahaan atau manfaat lingkungan produk.",
+  "Aksi rumah tangga akan lebih berdampak ketika dilakukan bersama banyak orang dan didukung sistem pengelolaan yang berfungsi."
+];
+document.getElementById('grade-quiz').addEventListener('click',()=>{
+  let score=0,answered=0,details='';
+  quizAnswers.forEach((answer,i)=>{
+    const selected=document.querySelector('input[name="q'+i+'"]:checked');
+    if(selected){
+      answered++;
+      if(Number(selected.value)===answer)score+=10;
+    }
+    details+='<p><b>Soal '+(i+1)+': '+(selected&&Number(selected.value)===answer?'Benar':'Belum tepat')+'</b><br>'+quizExplanations[i]+'</p>';
+  });
+  const result=document.getElementById('quiz-result');
+  if(answered<10){
+    result.hidden=false;
+    result.innerHTML='<b>Masih ada '+(10-answered)+' soal yang belum dijawab.</b><br>Lengkapi semua soal terlebih dahulu, lalu tekan Lihat Nilai.';
+    return;
+  }
+  let message=score>=80?'Hebat! Pemahamanmu tentang zero waste sangat baik.':score>=60?'Bagus! Pelajari kembali beberapa bagian materi agar semakin paham.':'Jangan menyerah. Baca kembali materi, lalu coba evaluasi sekali lagi.';
+  result.hidden=false;
+  result.innerHTML='<h3>Hasil Evaluasi: '+score+'/100</h3><p><b>'+message+'</b></p><h3>Pembahasan</h3>'+details;
+  result.scrollIntoView({behavior:'smooth',block:'start'});
+});
+document.getElementById('reset-quiz').addEventListener('click',()=>{
+  document.querySelectorAll('#quiz-questions input[type="radio"]').forEach(input=>input.checked=false);
+  const result=document.getElementById('quiz-result');
+  result.hidden=true;
+  result.innerHTML='';
+  document.getElementById('quiz').scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+</script>
+</body>
+</html>
